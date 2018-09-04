@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang ="fr"> 
+    <head>
+        <title>Exemple simple</title>
+        <meta charset="utf-8">
+            
+    <!-- Présentation pour le cours de Réseaux Chapitre 2  -->
+        
+        <meta name="description" content="Exercice formulaire à partir d'une présentation personnel"/>
+        <meta name="author" content="Stéphane THOIRON"/>
+    </head>
+    <body>
+        <form method="post"
+            action="chap5-resultat.php"
+            style="background-color:aqua;">
+            <h3>Petit questionnaire</h3>
+                <p>Prénom : <input type="text" name="prenom"/>
+                <p>Nom : <input type="text" name="nom"/>
+                <p>Vous aimez : 
+                    <input type="checkbox" name="l'informatique"> l'informatique
+                    <input type="checkbox" name="voyager"> voyager
+                    <input type="checkbox" name="martialart"> les arts martiaux
+                    <input type="checkbox" name="ADP"> le groupe ADP
+                <p>Vous préférez voyager à
+                    <input type="radio" name="pref" value="NewYork" /> New York
+                    <input type="radio" name="pref" value="Amsterdam" /> Amsterdam
+                    <input type="radio" name="pref" value="Moscou" /> Moscou
+                    <input type="radio" name="pref" value="Tokyo"/> Tokyo   
+                <p> <input type="submit">
+        </form>
+    </body>
+</html>

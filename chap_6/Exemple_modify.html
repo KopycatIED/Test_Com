@@ -1,0 +1,20 @@
+<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Un premier exemple de JavaScript</title>
+		</head>
+		<body style="background-color:#efface;">
+			<p id="par1">Ceci est un premier paragraphe
+			<p id="par2">Ceci est un deuxième paragraphe
+			<button id="b1" type="button" onclick="clic()">Taper ici</button>
+			<script>
+				var nfois = 0;
+				function clic(){
+				nfois += 1;
+				var str = "Taper ici " + nfois + " fois";
+				document.getElementById("b1").innerHTML = str;
+				}
+			</script>
+		</body>
+	</html>

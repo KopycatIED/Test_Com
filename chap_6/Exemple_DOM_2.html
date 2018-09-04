@@ -1,0 +1,47 @@
+<!doctype html>
+
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>JavaScript</title>
+		</head>
+		<body style="background-color:#efface;">
+
+            <!--Exercice Chapitre 6  -->
+            <!-- THOIRON STEPHANE L1 n° -->
+            <p> Cliquer ici pour afficher le Document Object Model</p>
+            
+            <p><button onclick="function_1()">Affichage du domaine et du titre</button></p>
+            <p id ="test_02"></p>
+            <p><button onclick="function_2()">Affichage texte</button></p>
+            <p id ="test_03"></p>
+            <p><button onclick="function_3()">Affichage ChildNodes</button></p>
+            <p id ="test_04"></p>
+            
+
+            <script>
+                    
+                
+                function function_1() {
+                    
+                    document.getElementById("test_02").innerHTML = document.domain + "<br>" + document.title;
+                }
+                
+                function function_2() {
+                    
+                    document.getElementById("test_03").innerHTML = 'Chaine de caractère !';
+                }
+                
+                function function_3() {
+                    
+                    var text ="";
+                        for (var i = 0; i < document.body.childNodes.length; i++){
+                        text += document.body.childNodes[i] + "<br>";
+                        }
+                        document.getElementById("test_04").innerHTML = text;
+                        
+                }
+                
+            </script>
+		</body>
+	</html>

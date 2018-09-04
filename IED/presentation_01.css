@@ -1,0 +1,141 @@
+/* Programmation des CSS sur le projet Pésentation */
+/* Début : 06/03/2018 17h15 */
+/* Fin : 11/03/2018 18h11 */
+
+/* Présentation pour le cours de Réseaux Chapitre 2 */
+/* Sources : https://openclassrooms.com/courses/apprenez-a-creer-votre-site-web-avec-html5-et-css3 */
+/* Sources : https://validator.w3.org/nu/#textarea */
+
+/*-----------------------------------------------*/
+/* V2 à fournir suivant demande de correction de Mr P. KISLIN ci-dessous */
+/* Attention, sur Safari, votre page ne s'affiche pas correctement (chapitre 3). */
+/*Et pour le chapitre 2 (TB vos commentaires !!), pourriez-vous ne pas utiliser*/  
+/*de feuille de style, centrer une de vos images (hall) si nécessaire (balise <center>)*/
+/*ou dans un tableau par ex, ajouter des balises <META> afin de décrire le contenu de votre page.*/
+/*-----------------------------------------------*/
+
+
+/* Création de center */
+
+/*  ----------------- */
+/*  Element du header */
+/*  ----------------- */
+
+/* "Conteneur" est le nom de la variable pour le câdre header  */
+#conteneur{
+    
+    display: flex;
+    height: 200px;        
+}
+
+/*Cadre de gauche du header*/
+    .element:nth-child(1){
+        border: 2px solid black;
+        text-align: center;
+        width: 18%;
+    }
+
+/*Cadre du milieu du header*/
+    .element:nth-child(2){
+        border: 2px solid black;
+        flex: 1; /*Dimention automatique */
+        text-align: center;
+    }
+/*Cadre de droite du header*/
+    .element:nth-child(3){
+        border: 2px solid black;
+        /*width: 393px;*/
+        width: 20.7%;
+    }
+
+
+
+/*Center*/
+#conteneur_2{
+    
+    display: flex;
+    height: 1300px;        
+}
+
+/*Cadre TEST*/
+    .element_2:nth-child(1){
+        border: 1px solid black;
+        text-align: left;
+        flex:1;
+        /*width: 88%;*/
+        padding-left: 2%;
+        padding-right: 1%;
+
+    }
+
+
+/*  ----------------- */
+/*  Element du BODY */
+/*  ----------------- */
+body 
+{
+    background-color : #FF0F0F;   
+}
+
+/*  ----------------- */
+/*  Element du NAV */
+/*  ----------------- */
+
+nav
+{
+    float: left;
+    border: 2px solid black;
+    width: 17%;
+    padding-left: 1%;
+}
+/* ASIDE  */
+aside
+{
+    float: right;
+    border: 2px solid black;
+    width: 19.7%;
+    padding-right: 1%;
+
+}
+/*ASIDE => Connexion*/
+#connexion{text-align: right;}
+/*ASIDE => Inscrire*/
+#inscrire{text-align: right;}
+
+#center{
+
+    /*height: auto;*/
+    /*width: auto; */ /* ie8 */
+    
+}
+
+/*  --------------------- */
+/*  Element de la section */
+/*  --------------------- */
+
+section{
+    
+    padding-left: 6%;
+    border: 2px solid black;
+    padding-right: 21%;
+}
+
+#portrait{
+    padding-left: 15px ;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    box-sizing: border-box;
+       
+}
+/* Permet d'étirer le deuxième élément par rapport aux autres en automatique*/
+
+h3 {
+    
+    color: green; /* couleur des titres h3 en ...  */
+}
+
+
+p {
+    color:darkslategray; /* couleur des chapitres en .. */
+    font-family: sans-serif; /* Modification des fontes en ...  */
+}

@@ -1,0 +1,21 @@
+<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Un premier exemple de JavaScript</title>
+			<script>console.log("dans la tete");</script>
+		</head>
+		<body style="background-color:#efface;">
+			<p id="par1">Ceci est un premier paragraphe
+			<script>console.log("au milieu du corps");</script>
+			<p id="par2">Ceci est un deuxième paragraphe
+			<button id="b1" type="button" onclick="clic()">Taper ici</button>
+			<script>
+				var nfois = 0;
+				function clic(){
+				nfois += 1;
+				alert("Un clic sur le bouton (" + nfois + " fois en tout)");
+				}
+			</script>
+		</body>
+	</html>
