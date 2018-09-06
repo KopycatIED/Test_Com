@@ -1,30 +1,106 @@
-import socket
+# Serveur TCP en python
+# STEPHANE THOIRON
+# L1 - IED - V2 - CHAPITRE 7 - COURS RESEAU -  
+# Sources : https://openclassrooms.com/fr/courses/235344-apprenez-a-programmer-en-python/234698-le-reseau
 
-def Main():
-    host = '' # Mettre ' ' lors des tests en externe 
-    port = 5000
 
-    s = socket.socket()
-    s.bind((host, port))
+
+import socket  # Module Socket
+
+import select # Module Select
+
+
+hote = '' 
+
+port = 12800
+
+
+connexion_principale = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # AF_NET : famille d'adresse / SOCK_STREAM : protocole TCP
+
+connexion_principale.bind((hote, port)) # Connexion au serveur via la méthode BIND
+
+connexion_principale.listen(5) # Connexion avec 5 clients possible
+
+print("Le serveur écoute à présent sur le port {}".format(port))
+
+
+serveur_lance = True
+
+clients_connectes = []
+
+while serveur_lance:
+
+    # Ecoute de la connexion en lecture pendant 50 ms
+
+    connexions_demandees, wlist, xlist = select.select([connexion_principale],  
+
+        [], [], 0.05)
+
     
-    c
-    s.listen(1)
+
+    for connexion in connexions_demandees:
+
+        connexion_avec_client, infos_connexion = connexion.accept()
+
+        # On ajoute le socket connecté à la liste des clients
+
+        clients_connectes.append(connexion_avec_client)
+
     
-    addr = s.accept()
-    print ("Connection from: " + str(addr))
-    while True:
-        data = c.recv(1024)
-        if not data:
-            break
-        print ("from connected user: " + str(data))
-        data = str(data).upper()
-        print ("sending: " + str(data))
-        if data == "BONJOUR":
-            c.send("bonsoir")
-        else :
-            c.send(data)
-    c.close()
 
-if __name__ == '__main__': 
-    Main()
+    # Maintenant, on écoute la liste des clients connectés
 
+    # Les clients renvoyés par select sont ceux devant être lus (recv)
+
+    # On attend là encore 50ms maximum
+
+    # On enferme l'appel à select.select dans un bloc try
+
+    # En effet, si la liste de clients connectés est vide, une exception
+
+    # Peut être levée
+
+    clients_a_lire = []
+
+    try:
+
+        clients_a_lire, wlist, xlist = select.select(clients_connectes, # wlist : listges des socket en attente d'être écrites
+                                                                        # xlist : listes des socket en attente d'erreur
+
+                [], [], 0.05)
+
+    except select.error:
+
+        pass
+
+    else:
+
+        # On parcourt la liste des clients à lire
+
+        for client in clients_a_lire:
+
+            # Client est de type socket
+
+            msg_recu = client.recv(1024)
+
+            # Peut planter si le message contient des caractères spéciaux
+
+            msg_recu = msg_recu.decode()
+
+            print("Reçu {}".format(msg_recu))
+
+            client.send(b"5 / 5")
+
+            if msg_recu == "fin":
+
+                serveur_lance = False
+
+
+print("Fermeture des connexions")
+
+for client in clients_connectes:
+
+    client.close()
+
+
+connexion_principale.close()
